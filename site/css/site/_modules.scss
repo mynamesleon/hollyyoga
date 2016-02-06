@@ -1,0 +1,233 @@
+.module {
+    @include pxtorem(margin-top, 80);
+    @include pxtorem(margin-bottom, 80);
+
+    .ie7 & {
+        padding: 80px 0;
+        margin: 0;
+
+        ~ .module {
+            padding-top: 0;
+        }
+    }
+
+    &.quote {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 0;
+
+        .image-fit-container {
+            z-index: 1;
+        }
+        .wrapper {
+            position: relative;
+            z-index: 2;
+            @include pxtorem(padding, 80, 0);
+            color: #fff;
+        }
+    }
+
+    &.grid {
+        .grid-item {
+            position: relative;
+
+            .half {
+                width: 50%;
+                position: relative;
+
+                &.text {
+                    float: right;
+                }
+                &.image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                }
+            }
+
+            &.item-odd .half {
+                &.text {
+                    float: left;
+                }
+                &.image {
+                    left: auto;
+                    right: 0;
+                }
+            }
+
+            table {
+                @include pxtorem(height, 500);
+            }
+            td {
+                padding: 18%;
+
+                @media screen and (max-width: $bp-md) {
+                    padding: 12%
+                }
+            }
+
+            @media screen and (max-width: $bp-sm) {
+                ~ .grid-item {
+                    margin-top: 3rem;
+                }
+
+                .half,
+                &.item-odd .half {
+                    width: 100%;
+                    clear: both;
+
+                    &.text {
+                        float: none;
+                    }
+                    &.image {
+                        position: relative;
+                        height: 0;
+                        padding-bottom: 85%;
+                    }
+
+                    table {
+                        height: auto;
+                    }
+                    td {
+                        padding: 4rem 3rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &.map {
+        .map-holder {
+            height: 0;
+            padding-bottom: 60%;
+        }
+        .no-js & {
+            display: none;
+        }
+    }
+
+    &.infolist {
+        .info-item {
+            ~ .info-item {
+                @include pxtorem(margin-top, 40);
+            }
+            .title {
+                background: $theme-gold;
+                color: #fff;
+                @include pxtorem(padding, 19, 40);
+                @include pxtorem(margin-bottom, 22);
+
+                h3 {
+                    margin: 0;
+                }
+            }
+            .content {
+                @include pxtorem(padding, 35, 40);
+            }
+
+            @media screen and (max-width: $bp-sm) {
+                .title,
+                .content {
+                    padding: 2rem 3rem;
+                }
+            }
+        }
+    }
+
+    &.form {
+        form {
+            color: #fff;
+            background: $theme-dark;
+            position: relative;
+            @include pxtorem(padding, 80, 0);
+
+            .cover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 80%;
+                height: 100%;
+                padding: 0 10%;
+                background: $theme-dark;
+                background: rgba(0,0,0,0.75);
+                color: $theme-gold;
+                @include pxtorem(font-size, 32);
+                text-align: center;
+            }
+
+            > .wrapper > div {
+                @include pxtorem(margin-top, 40);
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                @media screen and (max-width: $bp-sm) {
+                    margin-top: 2.2rem;
+                }
+            }
+
+            @media screen and (max-width: $bp-lg) {
+                padding: 4rem 0;
+            }
+        }
+        label,
+        input,
+        textarea,
+        label span {
+            display: block;
+            width: 100%;
+        }
+        label {
+            cursor: pointer;
+            .error {
+                display: none;
+            }
+            &.error {
+                input,
+                textarea {
+                    background: $theme-gold-hover;
+                }
+                .error {
+                    display: block;
+                    color: $theme-gold;
+                    @include pxtorem(margin-top, 15);
+                }
+            }
+        }
+        input,
+        textarea {
+            color: $theme-dark;
+            @include pxtorem(padding, 10);
+            @include pxtorem(margin-top, 15);
+            @include prefixes(box-sizing, border-box);
+            border: none;
+            resize: none;
+        }
+        input {
+            @include pxtorem(height, 50);
+        }
+        input[type="submit"] {
+            @include pxtorem(padding, 10, 20);
+        }
+        textarea {
+            @include pxtorem(height, 160);
+        }
+        .cta {
+            float: right;
+            display: inline-block;
+            width: auto;
+            color: #fff;
+
+            &:hover,
+            &:focus {
+                color: $theme-dark;
+            }
+        }
+    }
+
+    @media screen and (max-width: $bp-sm) {
+        margin: 5.5rem 0;
+    }
+}

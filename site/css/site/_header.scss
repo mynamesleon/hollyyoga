@@ -1,0 +1,196 @@
+#site-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 1000;
+    @include prefixes(box-shadow, 0 0 0.3rem rgba(0,0,0,0.3));
+
+    .oldie & {
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            float: left;
+
+            a {
+                display: block;
+                color: $theme-dark;
+                text-decoration: none;
+                @include pxtorem(padding, 0, 25);
+                @include pxtorem(line-height, 70);
+                @include prefixes(transition, 0.3s);
+
+                &:hover,
+                &.active {
+                    color: $theme-gold;
+                }
+
+                @media screen and (max-width: $bp-lg) {
+                    padding: 0 1.5rem;
+                }
+
+                @media screen and (max-width: $bp-sm) {
+                    padding: 0 1.2rem;
+                    line-height: 6rem;
+                }
+            }
+        }
+    }
+
+    #social {
+        float: left;
+        @include pxtorem(padding, 0, 15);
+
+        a {
+            @include pxtorem(width, 45);
+            @include pxtorem(height, 70);
+            padding: 0;
+            text-align: center;
+            color: $theme-gold;
+
+            .icon {
+                display: block;
+                margin: auto;
+                @include pxtorem(line-height, 70);
+                @include pxtorem(font-size, 24);
+                @include prefixes(transition, 0.3s);
+            }
+            &:hover .icon {
+                @include prefixes(transform, scale(1.2));
+            }
+        }
+
+        @media screen and (max-width: $bp-sm) {
+            display: none;
+        }
+    }
+
+    .cta {
+        @include pxtorem(height, 70);
+        @include pxtorem(line-height, 70);
+        border-top: none;
+        border-bottom: none;
+        border-right: none;
+        border-left: 1px solid #e6e6e6;
+        float: right;
+
+        @media screen and (max-width: $bp-md) {
+            display: none;
+        }
+
+        .ie7 & {
+            float: none;
+        }
+    }
+}
+
+#logo {
+    @include pxtorem(width, 70);
+    @include pxtorem(height, 70);
+    display: block;
+    font-family: $font-header;
+    background: $theme-dark;
+    font-style: normal;
+    position: relative;
+    float: left;
+
+    > span {
+        color: #fff;
+        position: absolute;
+        @include pxtorem(top, 22);
+        @include pxtorem(left, 31);
+        @include pxtorem(font-size, 42);
+        line-height: 1;
+
+        &:first-child {
+            @include pxtorem(top, 8);
+            @include pxtorem(left, 9);
+            color: $theme-gold;
+        }
+    }
+
+    @media screen and (max-width: $bp-sm) {
+        width: 6rem;
+        height: 6rem;
+
+        > span {
+            top: 2.1rem;
+            left: 2.7rem;
+            font-size: 3.3rem;
+
+            &:first-child {
+                top: 1rem;
+                left: 1rem;
+            }
+        }
+    }
+}
+
+#site-navigation {
+    @include pxtorem(padding-left, 35);
+    float: left;
+
+    @media screen and (max-width: $bp-lg) {
+        padding-left: 2.5rem;
+    }
+
+    @media screen and (max-width: $bp-md) {
+        padding-left: 2rem;
+
+        ul li:first-child {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: $bp-xs) {
+        padding-left: 0.5rem;
+    }
+}
+
+.banner {
+    position: relative;
+    z-index: 1;
+
+    h1 {
+        z-index: 2;
+        position: relative;
+        text-align: center;
+        margin: 0;
+    }
+    .image-fit-container {
+        z-index: 1;
+    }
+
+    &.image {
+        @include pxtorem(height, 700);
+
+        &.module {
+            margin: 0;
+        }
+        h1 {
+            color: #fff;
+        }
+
+        @media screen and (max-width: $bp-md) {
+            height: 50rem;
+        }
+
+        @media screen and (max-width: $bp-sm) {
+            height: 40rem;
+        }
+    }
+}

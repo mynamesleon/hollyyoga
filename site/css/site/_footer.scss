@@ -1,0 +1,21 @@
+#site-footer {
+    background: $theme-dark;
+    color: #fff;
+    @include pxtorem(padding, 23, 0);
+
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+
+    @media screen and (max-width: $bp-sm) {
+        .left,
+        .right {
+            float: none;
+            clear: both;
+            text-align: center;
+        }
+    }
+}
